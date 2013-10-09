@@ -1,0 +1,37 @@
+﻿<Page x:Class="WpfApplication1.Game1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:Controls="clr-namespace:Coding4Fun.Kinect.Wpf.Controls;assembly=Coding4Fun.Kinect.Wpf" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d"  
+	Title="Page">
+    <Page.Resources>
+        <Storyboard x:Key="VID_20131001_193436_mp4">
+            <MediaTimeline Source="VID_20131001_193436.mp4" Storyboard.TargetName="VID_20131001_193436_mp4" d:DesignTimeNaturalDuration="1" Completed="MediaTimeline_Completed"/>
+        </Storyboard>
+    </Page.Resources>
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource VID_20131001_193436_mp4}"/>
+        </EventTrigger>
+    </Page.Triggers>
+
+    <Grid Canvas.Top="-16" x:Name="LayoutRoot">
+
+        <Canvas Margin="0,1.4,4,-1.8">
+
+            <Button x:Name="SkipDemo" Content="Start Exercising" Click="SkipDemo_Click" Height="88" Canvas.Left="725" Canvas.Top="155.6" Width="300" Background="#FFBBD71A" FontSize="32" FontFamily="SketchFlow Print" FontWeight="ExtraBlack"/>
+            <Button x:Name="BACKHOME" Content="Home" Click="BACKHOME_Click" Height="88" Canvas.Left="725" Canvas.Top="320.6" Width="300" Background="#FFBBD71A" FontSize="32" FontFamily="SketchFlow Print" FontWeight="ExtraBlack"/>
+
+            <Controls:HoverButton Margin="0" Padding="0" x:Name="kinectButton" ImageSize="50"                                           
+                                ImageSource="/WpfApplication1;component/Images/myhand.png"  
+                                ActiveImageSource="/WpfApplication1;component/Images/myhand.png" 
+                                TimeInterval="4000"  Panel.ZIndex="1000" Canvas.Left="0" Canvas.Top="0" />
+            <MediaElement x:Name="VID_20131001_193436_mp4" Height="426.5" Canvas.Left="155.833" Stretch="Fill" Canvas.Top="77.1" Width="369.167"/>
+            <Label x:Name="startText" HorizontalAlignment="Center" Height="76" Content="Say 'START!' To Begin Exercising" VerticalAlignment="Center" Width="400" FontSize="32" Foreground="WhiteSmoke" Canvas.Left="140" Canvas.Top="393.6"  Visibility="Collapsed"/>
+            <Image x:Name="startimage" HorizontalAlignment="Center" Source="pack://siteoforigin:,,,/start.gif" Stretch="Fill" Width="366" VerticalAlignment="Center" Canvas.Left="159" Canvas.Top="163.6" Height="235"  Visibility="Collapsed"/>
+        </Canvas>
+
+    </Grid>
+</Page>
