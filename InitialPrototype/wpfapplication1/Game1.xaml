@@ -1,0 +1,51 @@
+﻿<Page x:Class="WpfApplication1.Game1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:Controls="clr-namespace:Coding4Fun.Kinect.Wpf.Controls;assembly=Coding4Fun.Kinect.Wpf" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d"  
+	Title="Page"
+      >
+	<Page.Resources>
+		<Storyboard x:Key="StretchingExerciseVideo_mp4">
+			<MediaTimeline Source="StretchingExerciseVideo.mp4" Storyboard.TargetName="StretchingExerciseVideo_mp4" d:DesignTimeNaturalDuration="7"/>
+		</Storyboard>
+	</Page.Resources>
+	<Page.Triggers>
+		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+			<BeginStoryboard Storyboard="{StaticResource StretchingExerciseVideo_mp4}"/>
+		</EventTrigger>
+	</Page.Triggers>
+
+    <Canvas x:Name="LayoutRoot" Margin="50,50,50,50">
+
+        <Label Content="STRETCHING" FontSize="30" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Foreground="Chocolate" FontWeight="ExtraBold" FontFamily="Century Gothic" FontStyle="Normal" Canvas.Left="400" Canvas.Top="35"/>
+        <!-- <Image x:Name="startimage" HorizontalAlignment="Center" Source="pack://siteoforigin:,,,/start.gif" VerticalAlignment="Center" Canvas.Left="155" Canvas.Top="125" Height="295" Width="315" Visibility="Collapsed"/> -->
+
+        <Rectangle x:Name="countRectangle" Fill="#FFF4F4F5" Height="441" Canvas.Left="490" Stroke="Black" Canvas.Top="74" Width="265"/>
+
+        <!-- <Image x:Name="startimage" HorizontalAlignment="Center" Source="pack://siteoforigin:,,,/start.gif" VerticalAlignment="Center" Canvas.Left="155" Canvas.Top="125" Height="295" Width="315" Visibility="Collapsed"/> -->
+
+        <Image x:Name="startimage" HorizontalAlignment="Center" Source="pack://siteoforigin:,,,/start.gif" VerticalAlignment="Center" Canvas.Left="95" Canvas.Top="120" Width="665" Height="390" Visibility="Collapsed"/>
+
+        <Label x:Name="countRectangleLabel" Content="Select number of counts" Canvas.Left="500" Canvas.Top="85" Width="250" Height="35" FontFamily="/WpfApplication1;component/Fonts/#SketchFlow Print" FontWeight="Bold" FontSize="18.667"/>        
+
+        <MediaElement x:Name="StretchingExerciseVideo_mp4" Height="440" Canvas.Left="90" Stretch="Fill" Canvas.Top="75" Width="400"/>
+        <!-- <Label x:Name="startText" HorizontalAlignment="Center" Content="Say 'BEGIN' To Start Exercising" VerticalAlignment="Center" Foreground="DarkBlue" FontSize="32" FontFamily="SketchFlow Print" FontWeight="ExtraBlack" FontStyle="Italic" Canvas.Left="71.296" Canvas.Top="516.406" Visibility="Collapsed"/> -->
+        <Label x:Name="startText" HorizontalAlignment="Center" Content="Say 'BEGIN' To Start Exercising" Foreground="Chocolate" FontSize="32" FontFamily="SketchFlow Print" FontWeight="ExtraBlack" FontStyle="Italic" Canvas.Left="150" Canvas.Top="75" Visibility="Collapsed" />
+
+        <Button x:Name="SkipDemo" Content="2" Click="SkipDemo_Click" Height="100" Width="110" Background="Plum" FontSize="28" FontFamily="SketchFlow Print" FontWeight="ExtraBlack" Canvas.Left="570" Canvas.Top="130"/>
+        <Button x:Name="SetOf5" Content="5" Click="SetOf5_Click" Height="105" Width="115" Background="Plum" FontSize="28" FontFamily="SketchFlow Print" FontWeight="ExtraBlack" Canvas.Left="570" Canvas.Top="245"/>
+        <Button x:Name="SetOf10" Content="10" Click="SetOf10_Click" Height="105" Width="110" Background="Plum" FontSize="28" FontFamily="SketchFlow Print" FontWeight="ExtraBlack" Canvas.Left="575" Canvas.Top="375"/>
+        
+        <Button x:Name="BACKHOME" Content="Home" Click="BACKHOME_Click" Height="200" Width="250" Background="Plum" FontSize="28" FontFamily="SketchFlow Print" FontWeight="ExtraBlack" Canvas.Left="755" Canvas.Top="314"/>
+        
+
+        <Controls:HoverButton Margin="0" Padding="0" x:Name="kinectButton" ImageSize="50"                                           
+                                ImageSource="/WpfApplication1;component/Images/myhand.png"  
+                                ActiveImageSource="/WpfApplication1;component/Images/myhand.png" 
+                                TimeInterval="2000"  Panel.ZIndex="1000" Canvas.Left="75" Canvas.Top="310" />
+    </Canvas>
+
+</Page>

@@ -1,0 +1,29 @@
+﻿<Window x:Class="WpfApplication1.ExitGesture"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        
+        Title="ExitGesture" xmlns:my="clr-namespace:Microsoft.Samples.Kinect.WpfViewers;assembly=Microsoft.Samples.Kinect.WpfViewers" Loaded="Window_Loaded" Closing="Window_Closing"
+        Background="{DynamicResource {x:Static SystemColors.InfoBrushKey}}">
+    
+    <Grid Margin="3.333,-14,25,25">
+
+        
+        <my:KinectDepthViewer Name="kinectDepthViewer1" Width="320" Height="240" Kinect="{Binding ElementName=kinectSensorChooser1, Path=Kinect}"  Visibility="Collapsed"/>
+        <my:KinectSensorChooser Name="kinectSensorChooser1" Width="Auto" Visibility="Collapsed" />
+        <my:KinectSkeletonViewer HorizontalAlignment="Left" Margin="353,43,0,0" Name="kinectSkeletonViewer1" VerticalAlignment="Top" Height="240" Width="320" Kinect="{Binding ElementName=kinectSensorChooser1, Path=Kinect}" Visibility="Collapsed" />
+        <Canvas HorizontalAlignment="Left" VerticalAlignment="Top">
+        	<DockPanel Height="225" Canvas.Top="193.697" Width="543" Canvas.Left="84">
+        		<Canvas Width="553">
+        			<Label Content="&#xA; &#xA;&#x9;If YES, please do&#xA;&#xA;&#xA;&#xA;&#x9;Else say 'No'&#xA;" FontFamily="/WpfApplication1;component/Fonts/#SketchFlow Print" FontWeight="Bold" FontSize="24" Height="225"/>
+        			<Image Source="Images/X_exit.jpg" Stretch="None" Height="210" Canvas.Left="330.666" Canvas.Top="-5"/>
+        		</Canvas>
+        	</DockPanel>
+        	<Label Content="Exercise Assistant/Tracker using Kinect" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="Chocolate" FontWeight="ExtraBold" FontFamily="Century Gothic" FontStyle="Normal" FontSize="26.667" Width="512" Canvas.Left="160" Canvas.Top="110"/>
+
+            <Label Content="Do you really want to exit the application?" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="/WpfApplication1;component/Fonts/#SketchFlow Print" FontWeight="Bold" FontSize="24" Height="40" Width="543.002" Canvas.Left="144.498" Canvas.Top="196"/>
+        </Canvas>
+        
+
+ 
+</Grid>
+</Window>

@@ -1,0 +1,33 @@
+﻿<Page x:Class="WpfApplication1.MainMenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      
+              xmlns:Controls="clr-namespace:Coding4Fun.Kinect.Wpf.Controls;assembly=Coding4Fun.Kinect.Wpf" 
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:System.Windows.Controls;assembly=PresentationFramework"
+      mc:Ignorable="d" 
+    d:DesignHeight="auto" d:DesignWidth="auto"   
+	Title="Page"
+      FontFamily="SketchFlow Print"
+        FontSize="32">
+
+    <Grid x:Name="LayoutRoot">
+
+        <Canvas Margin="0,0,0,0">
+            <Label x:Name="TitleLabel" Canvas.Left="100" Canvas.Top="50" HorizontalContentAlignment="Center" Content="EXERCISE ASSISTANT/TRACKER USING KINECT" Foreground="Chocolate" FontWeight="ExtraBold" FontSize="44" FontFamily="Century Gothic" FontStyle="Normal"/>
+            <Button x:Name="GAME1" Content="STRETCHING" Height="200" Canvas.Left="325" Canvas.Top="150" Width="250" Click="GAME1_Click" Background="#FFF52222" FontWeight="ExtraBlack"/>
+            <Button x:Name="GAME2" Content="SQUATS"  Height="200" Canvas.Left="625" Canvas.Top="150" Width="250" Click="GAME2_Click" Background="#FF17CB6A" FontWeight="ExtraBlack"/>
+            <Button x:Name="GAME3" Content="HELP" Height="200" Canvas.Left="150"  Canvas.Top="400" Width="250" Click="GAME3_Click" Background="Plum" FontWeight="ExtraBlack"/>
+            <Button x:Name="DEMO" Content="DEMO" Height="200" Canvas.Left="450" Canvas.Top="400" Width="250" Click="DEMO_Click" Background="Plum" FontWeight="ExtraBlack"/>
+            <Button x:Name="EXIT" Content="EXIT" Height="200" Canvas.Left="750" Canvas.Top="400" Width="250" Click="EXIT_Click" Background="Plum" FontWeight="ExtraBlack"/>
+
+            <Controls:HoverButton Margin="0" Padding="0" x:Name="kinectButton" ImageSize="50"                                           
+                                ImageSource="/WpfApplication1;component/Images/myhand.png"  
+                                ActiveImageSource="/WpfApplication1;component/Images/myhand.png" 
+                                TimeInterval="2000"  Panel.ZIndex="1000" Canvas.Left="0" Canvas.Top="0" />
+        </Canvas>
+        <local:Frame Name="MainFrame" NavigationUIVisibility="Hidden" >
+        </local:Frame>
+    </Grid>
+</Page>

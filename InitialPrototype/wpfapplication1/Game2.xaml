@@ -1,0 +1,34 @@
+﻿<Page x:Class="WpfApplication1.Game2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:Controls="clr-namespace:Coding4Fun.Kinect.Wpf.Controls;assembly=Coding4Fun.Kinect.Wpf" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d"   
+	Title="Page">
+
+    <Page.Resources>
+        <Storyboard x:Key="SquatsExerciseVideo_mp4">
+            <MediaTimeline Source="SquatsExerciseVideo.mp4" Storyboard.TargetName="SquatsExerciseVideo_mp4" d:DesignTimeNaturalDuration="7"/>
+        </Storyboard>
+    </Page.Resources>
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource SquatsExerciseVideo_mp4}"/>
+        </EventTrigger>
+    </Page.Triggers>
+
+    <Canvas x:Name="LayoutRoot" Margin="50,50,50,50">
+        <MediaElement x:Name="SquatsExerciseVideo_mp4" Height="440" Canvas.Left="90" Stretch="Fill" Canvas.Top="75" Width="400"/>
+        <Label x:Name="startText" HorizontalAlignment="Center" Content="Say 'BEGIN' To Start Exercising" VerticalAlignment="Center" Foreground="DarkBlue" FontSize="32" FontFamily="SketchFlow Print" FontWeight="ExtraBlack" FontStyle="Italic" Canvas.Left="71.296" Canvas.Top="516.406" Visibility="Collapsed"/>
+        <Image x:Name="startimage" HorizontalAlignment="Center" Source="pack://siteoforigin:,,,/start.gif" VerticalAlignment="Center" Canvas.Left="155" Canvas.Top="125" Height="295" Width="315" Visibility="Collapsed"/>
+        <Button x:Name="SkipDemo" Content="Start Exercising" Click="SkipDemo_Click" Height="200" Width="250" Background="Plum" FontSize="28" FontFamily="SketchFlow Print" FontWeight="ExtraBlack" Canvas.Left="885" Canvas.Top="95"/>
+        <Button x:Name="BACKHOME" Content="Home" Click="BACKHOME_Click" Height="200" Width="250" Background="Plum" FontSize="28" FontFamily="SketchFlow Print" FontWeight="ExtraBlack" Canvas.Left="885" Canvas.Top="325"/>
+        <Button x:Name="SetOf5" Content="Set of 5" Click="SetOf5_Click" Height="200" Width="250" Background="Plum" FontSize="28" FontFamily="SketchFlow Print" FontWeight="ExtraBlack" Canvas.Left="570" Canvas.Top="95"/>
+        <Button x:Name="SetOf10" Content="Set of 10" Click="SetOf10_Click" Height="200" Width="250" Background="Plum" FontSize="28" FontFamily="SketchFlow Print" FontWeight="ExtraBlack" Canvas.Left="570" Canvas.Top="325"/>
+        <Controls:HoverButton Margin="0" Padding="0" x:Name="kinectButton" ImageSize="50"                                           
+                                ImageSource="/WpfApplication1;component/Images/myhand.png"  
+                                ActiveImageSource="/WpfApplication1;component/Images/myhand.png" 
+                                TimeInterval="2000"  Panel.ZIndex="1000" Canvas.Left="75" Canvas.Top="310" />
+    </Canvas>
+
+</Page>
