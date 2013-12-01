@@ -1,0 +1,29 @@
+﻿<Page x:Class="WpfApplication1.videopage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+	Title="videopage">
+	<Page.Resources>
+		<Storyboard x:Key="rev_exercise_avi">
+			<MediaTimeline Source="rev_exercise.avi" Storyboard.TargetName="rev_exercise_avi" d:DesignTimeNaturalDuration="9.8099999999999987" SpeedRatio="3" Completed="MediaTimeline_Completed"/>
+		</Storyboard>
+	</Page.Resources>
+	<Page.Triggers>
+		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+			<BeginStoryboard Storyboard="{StaticResource rev_exercise_avi}"/>
+		</EventTrigger>
+	</Page.Triggers>
+
+    <Grid>
+
+        <DockPanel>
+
+            <Frame x:Name="_mainFrame"    NavigationUIVisibility="Hidden" />
+        </DockPanel>
+        <MediaElement x:Name="rev_exercise_avi" Margin="0,0,-24,-9" Stretch="Fill"/>
+        
+    </Grid>
+</Page>
